@@ -1,0 +1,168 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>어따써</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Core Stylesheet -->
+    <link href="{% static 'style.css'%}" rel="stylesheet">
+
+    <!-- Responsive CSS -->
+    <link href="{%static 'css/responsive/responsive.css'%}" rel="stylesheet">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="dorne-load"></div>
+    </div>
+
+    <!-- ***** Search Form Area ***** -->
+    <div class="dorne-search-form d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="search-close-btn" id="closeBtn">
+                        <i class="pe-7s-close-circle" aria-hidden="true"></i>
+                    </div>
+                    <form action="#" method="get">
+                        <input type="search" name="caviarSearch" id="search" placeholder="Search Your Desire Destinations or Events">
+                        <input type="submit" class="d-none" value="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header_area" id="header" style="background-color:rgba(0,0,0,0.6);">
+            <div class="container-fluid h-100" >
+                <div class="row h-100">
+                    <div class="col-12 h-100">
+                        <nav class="h-100 navbar navbar-expand-lg">
+                                <a class="navbar-brand" href="{%url 'hello'%}"><img src="{% static 'white.png'%}" style="width:80px;"alt=""></a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
+                            <!-- Nav -->
+                            <div class="collapse navbar-collapse" id="dorneNav">
+                                <ul class="navbar-nav mr-auto" id="dorneMenu">
+                                   
+    
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'hello' %}">Home</a>
+                                    </li>
+    
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="{% url 'about' %}">Explore</a>
+                                    </li>
+    
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="{%url 'contact'%}">Contact <span class="sr-only">(current)</span></a>
+                                    </li>
+                                </ul>
+                                <!-- Search btn -->
+                                <div class="dorne-search-btn">
+                                    <a id="search-btn" href="#"><i class="fa fa-search" aria-hidden="true"></i>상호명으로 검색하기</a>
+                                </div>
+                                
+                                
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- ***** Header Area End ***** -->
+
+    <!-- ***** Breadcumb Area Start ***** -->
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/hero-1.jpg)">
+    </div>
+    <!-- ***** Breadcumb Area End ***** -->
+
+    <!-- ***** Contact Area Start ***** -->
+    <div class="dorne-contact-area d-md-flex "style="width:100%" id="contact">
+        <!-- Contact Form Area -->
+            <div class="row">
+                <div class="contact-text col-sm-6" style="padding:2%;text-align:center;">
+                    <h4>어따써?</h4>
+                    <p>저희 프로젝트는 경기도 지역화폐 어쩌고 저쩌고</p>
+                    <div class="contact-info d-lg-flex" style="margin-left:20%;">
+                        <div class="single-contact-info">
+                            <h6><i class="fa fa-map-signs" aria-hidden="true"></i> 이윤직</h6>
+                            <h6><i class="fa fa-map-signs" aria-hidden="true"></i> 이태호</h6>
+                            <h6><i class="fa fa-map-signs" aria-hidden="true"></i> 박미성</h6>
+                            <h6><i class="fa fa-map-signs" aria-hidden="true"></i> 박영선</h6>
+                            <h6><i class="fa fa-map-signs" aria-hidden="true"></i> 류혜연</h6>
+                            <h6><i class="fa fa-map-signs" aria-hidden="true"></i> 박경완</h6>
+                        </div>
+                        <div class="single-contact-info">
+                            <h6><i class="fa fa-envelope-o" aria-hidden="true"></i> contact@likelion.org</h6>
+                            <h6><i class="fa fa-envelope-o" aria-hidden="true"></i> contact@likelion.org</h6>
+                            <h6><i class="fa fa-envelope-o" aria-hidden="true"></i> pmseng@likelion.org</h6>
+                            <h6><i class="fa fa-envelope-o" aria-hidden="true"></i> qkr970406@likelion.org</h6>
+                            <h6><i class="fa fa-envelope-o" aria-hidden="true"></i> govlrhaehfdl@likelion.org</h6>
+                            <h6><i class="fa fa-envelope-o" aria-hidden="true"></i> pkw8117197@likelion.org</h6>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form col-sm-6" style="padding:2%;">
+                    <div class="contact-form-title">
+                        <h6>의견을 보내주세요^>^</h6>
+                    </div>
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <input type="text" name="name" class="form-control" placeholder="이름">
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <input type="email" name="email" class="form-control" placeholder="이메일">
+                            </div>
+                            <div class="col-12">
+                                <input type="text" name="subject" class="form-control" placeholder="제목">
+                            </div>
+                            <div class="col-12">
+                                <textarea name="message" class="form-control" id="Message" cols="30" rows="10" placeholder="내용"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit"  class="btn dorne-btn">보내기</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        
+    </div>
+    <!-- ***** Contact Area End ***** -->
+
+    <!-- ****** Footer Area Start ****** -->
+    
+    <!-- ****** Footer Area End ****** -->
+
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js'%}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js'%}"></script>
+    <!-- Bootstrap-4 js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js'%}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/others/plugins.js'%}"></script>
+    <!-- Google Maps js -->
+    <script src="{% static 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDk9KNSL1jTv4MY9Pza6w8DJkpI_nHyCnk'%}"></script>
+    <script src="{% static 'js/google-map/map-active.js'%}"></script>
+    <!-- Active JS -->
+    <script src="{% static 'js/active.js'%}"></script>
+</body>
+
+</html>

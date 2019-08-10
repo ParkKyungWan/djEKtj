@@ -1,0 +1,278 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>어따써</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="">
+
+    <!-- Core Stylesheet -->
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+
+    <!-- Responsive CSS -->
+    <link href="{% static 'css/responsive/responsive.css' %}"  rel="stylesheet">
+    <style>
+        .backg{
+            background-image: url("{%static '시흥시 배경.jpg'%}");
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="dorne-load"></div>
+    </div>
+
+    <!-- ***** Search Form Area ***** -->
+    <div class="dorne-search-form d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="search-close-btn" id="closeBtn">
+                        <i class="pe-7s-close-circle" aria-hidden="true"></i>
+                    </div>
+                    <form action="{% url 'about' %}" method="POST">
+                        {%csrf_token%}
+                        <input type="search" name="caviarSearch" id="search" placeholder="찾고있는 상호명이 있나요?">
+                        <input type="submit" class="d-none" value="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header_area" id="header">
+        <div class="container-fluid h-100">
+            <div class="row h-100">
+                <div class="col-12 h-100">
+                    <nav class="h-100 navbar navbar-expand-lg">
+                        <a class="navbar-brand" href="{%url 'hello'%}"><img src="{% static 'white.png'%}" style="width:80px;"alt=""></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
+                        <!-- Nav -->
+                        <div class="collapse navbar-collapse" id="dorneNav">
+                            <ul class="navbar-nav mr-auto" id="dorneMenu">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="{% url 'hello' %}">Home <span class="sr-only">(current)</span></a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{% url 'about' %}">Explore</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{%url 'contact'%}">Contact</a>
+                                </li>
+                            </ul>
+                            <!-- Search btn -->
+                            <div class="dorne-search-btn">
+                                <a id="search-btn" href="#"><i class="fa fa-search" aria-hidden="true"></i>상호명으로 검색하기</a>
+                            </div>
+                            
+                            
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** Welcome Area Start ***** -->
+    <section class="dorne-welcome-area bg-img bg-overlay backg">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-center">
+                <div class="col-12 col-md-10">
+                    <div class="hero-content">
+                        <h2>지역화폐 이걸 어따써?</h2>
+                        <h4>지역화폐 사용 가능처 알아보기</h4>
+                    </div>
+                    <!-- Hero Search Form -->
+                    <div class="hero-search-form">
+                        <!-- Tabs -->
+                        <!-- Tabs Content -->
+                        <div class="tab-content" id="nav-tabContent">
+                            <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
+                                <h6>어느 상점을 찾으시나요?</h6>
+                                <form action="{% url 'about' %}" method="POST">
+                                    {%csrf_token%}
+                                        <select class="custom-select">
+                                                <option selected disabled>시흥시</option>
+                                        </select>
+                                        <select class="custom-select" name="dong">
+                                                <option value="전체" selected>지역 전체</option>
+                                                <option value="정왕동">정왕동</option>
+                                                <option value="은행동">은행동</option>
+                                                <option value="신현동">신현동</option>
+                                                <option value="월곶동">월곶동</option>
+                                                <option value="장곡동">장곡동</option>
+                                                <option value="신천동">신천동</option>
+                                                <option value="하중동">하중동</option>
+                                                <option value="계수동">계수동</option>
+                                                <option value="거모동">거모동</option>
+                                                <option value="대야동">대야동</option>
+                                                <option value="능곡동">능곡동</option>
+                                                <option value="화정동">화정동</option>
+                                                <option value="장현동">장현동</option>
+                                                <option value="하상동">하상동</option>
+                                                <option value="과림동">과림동</option>
+                                                <option value="포동">포동</option>
+                                                <option value="매화동">매화동</option>
+                                                <option value="군자동">군자동</option>
+                                                <option value="논곡동">논곡동</option>
+                                                <option value="도창동">도창동</option>
+                                                <option value="금이동">금이동</option>
+                                                <option value="조남동">조남동</option>
+                                                <option value="목감동">목감동</option>
+                                                <option value="물왕동">물왕동</option>
+                                                <option value="안현동">안현동</option>
+                                                <option value="미산동">미산동</option>
+                                                <option value="무지내동">무지내동</option>
+                                                <option value="방산동">방산동</option>
+                                                <option value="광석동">광석동</option>
+                                                <option value="죽율동">죽율동</option>
+                                        </select>
+        
+                                        <select class="custom-select" name ="category">
+                                                <option value="전체" selected>업종 전체</option>
+                                                <option value="협회">협회 및 단체</option>
+                                                <option value="숙박">숙박 및 음식점업</option>
+                                                <option value="도매">도매 및 소매업</option>
+                                                <option value="제조업">제조업</option>
+                                                <option value="예술">예술/스포츠 및 여가관련 서비스업</option>
+                                                <option value="보건업">보건업 및 사회복지서비스업</option>
+                                                <option value="교육서비스">교육서비스업</option>
+                                        </select>
+        
+                                    <button type="submit" class="btn dorne-btn"><i class="fa fa-search pr-2" aria-hidden="true"></i> 검색하기</button>
+                                </form>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+    <!-- ***** Welcome Area End ***** -->
+
+    <!-- ***** Catagory Area Start ***** -->
+    <section class="dorne-catagory-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="all-catagories">
+                        <div class="row">
+                            <!-- Single Catagory Area -->
+                            <div class="col-12 col-sm-6 col-md">
+                                <div class="single-catagory-area wow fadeInUpBig" data-wow-delay="0.2s">
+                                    <div class="catagory-content">
+                                        <img src="{%static 'icon-1.png'%}" alt="">
+                                        <a href="#">
+                                            <h6>숙박</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Catagory Area -->
+                            <div class="col-12 col-sm-6 col-md">
+                                <div class="single-catagory-area wow fadeInUpBig" data-wow-delay="0.4s">
+                                    <div class="catagory-content">
+                                        <img src="{%static 'icon-2.png'%}" alt="">
+                                        <a href="#">
+                                            <h6>음식점</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Catagory Area -->
+                            <div class="col-12 col-sm-6 col-md">
+                                <div class="single-catagory-area wow fadeInUpBig" data-wow-delay="0.6s">
+                                    <div class="catagory-content">
+                                        <img src="{%static 'icon-3.png'%}" alt="">
+                                        <a href="#">
+                                            <h6>여가</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Catagory Area -->
+                            <div class="col-12 col-sm-6 col-md">
+                                <div class="single-catagory-area wow fadeInUpBig" data-wow-delay="0.8s">
+                                    <div class="catagory-content">
+                                        <img src="{%static 'icon-4.png'%}" alt="">
+                                        <a href="#">
+                                            <h6>교육</h6>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Single Catagory Area -->
+                            <div class="col-12 col-sm-6 col-md">
+                                    <div class="single-catagory-area wow fadeInUpBig" data-wow-delay="0.4s">
+                                        <div class="catagory-content">
+                                            <img src="{%static 'medi.png'%}" alt="">
+                                            <a href="#">
+                                                <h6>보건/복지</h6>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Catagory Area End ***** -->
+
+    <!-- ***** About Area Start ***** -->
+    <section class="dorne-about-area section-padding-0-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="about-content text-center">
+                        <h2>시흥시 지역화폐<br><span>제대로 알고쓰자!</span></h2>
+                        <p>저희가 신속하게 알려드릴게요!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** About Area End ***** -->
+
+ 
+
+    
+
+    
+    <!-- ****** Footer Area Start ****** -->
+    
+    <!-- ****** Footer Area End ****** -->
+
+    
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap-4 js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/others/plugins.js' %}"></script>
+    <!-- Active JS -->
+    <script src="{% static 'js/active.js' %}"></script>
+</body>
+
+</html>

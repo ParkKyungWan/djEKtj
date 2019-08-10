@@ -1,0 +1,287 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title -->
+    <title>어따써</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/core-img/favicon.ico">
+
+    <!-- Core Stylesheet -->
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+
+    <!-- Responsive CSS -->
+    <link href="{% static 'css/responsive/responsive.css' %}"  rel="stylesheet">
+    <!-- dfadfafadfasdfasdfasdfasdfasdf-->
+    <!-- cdn -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    <!-- naverMaps -->
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=5ni0o8x1tj"></script>
+
+    <style>
+      .card {
+        background-color : rgb(175, 210, 233);
+        border-radius : 20px;
+        margin-bottom: 50px;
+        padding: 50px;
+        width : 80%;
+        margin-left:auto;
+        margin-right:auto;
+      }
+    </style>
+</head>
+
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="dorne-load"></div>
+    </div>
+
+    <!-- ***** Search Form Area ***** -->
+    <div class="dorne-search-form d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="search-close-btn" id="closeBtn">
+                        <i class="pe-7s-close-circle" aria-hidden="true"></i>
+                    </div>
+                    <form action="{% url 'about'%}" method="POST">
+                        {% csrf_token%}
+                        <input type="search" name="caviarSearch" id="search" placeholder="찾고있는 상호명이 있나요?">
+                        <input type="submit" class="d-none" value="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ***** Header Area Start ***** -->
+    <header class="header_area" id="header" style="background-color:rgba(0,0,0,0.6);">
+        <div class="container-fluid h-100" >
+                <div class="row h-100">
+                    <div class="col-12 h-100">
+                        <nav class="h-100 navbar navbar-expand-lg">
+                                <a class="navbar-brand" href="{%url 'hello'%}"><img src="{% static 'white.png'%}" style="width:80px;"alt=""></a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
+                            <!-- Nav -->
+                            <div class="collapse navbar-collapse" id="dorneNav">
+                                <ul class="navbar-nav mr-auto" id="dorneMenu">
+                                   
+    
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{% url 'hello' %}">Home</a>
+                                    </li>
+    
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="{% url 'about' %}">Explore</a>
+                                    </li>
+    
+                                    <li class="nav-item active">
+                                        <a class="nav-link" href="{%url 'contact'%}">Contact <span class="sr-only">(current)</span></a>
+                                    </li>
+                                </ul>
+                                <!-- Search btn -->
+                                <div class="dorne-search-btn">
+                                    <a id="search-btn" href="#"><i class="fa fa-search" aria-hidden="true"></i>상호명으로 검색하기</a>
+                                </div>
+                                
+                                
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** Breadcumb Area Start ***** -->
+    <div class="breadcumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/hero-1.jpg)">
+    </div>
+    <!-- ***** Breadcumb Area End ***** -->
+
+    <!-- Explore Area -->
+    <section class="dorne-explore-area d-md-flex">
+        <!-- Explore Search Area -->
+        <div class="explore-search-area d-md-flex">
+            <!-- Explore Search Form -->
+            <div class="explore-search-form">
+                <h6>What are you looking for?</h6>
+               
+                <!-- Tabs -->
+                <!-- Tabs Content -->
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-places" role="tabpanel" aria-labelledby="nav-places-tab">
+                        <form action="{% url 'about' %}" method="POST">
+                            {%csrf_token%}
+                       
+
+                            <select class="custom-select" id="시흥시">
+                                    <option selected>시흥시</option>
+                                </select>
+
+                                
+
+                            <select name="dong" class="custom-select" id="동이름">
+                                <option value="전체" selected>지역 전체</option>
+                                <option value="정왕동">정왕동</option>
+                                <option value="은행동">은행동</option>
+                                <option value="산현동">산현동</option>
+                                <option value="월곶동">월곶동</option>
+                                <option value="장곡동">장곡동</option>
+                                <option value="신천동">신천동</option>
+                                <option value="하중동">하중동</option>
+                                <option value="계수동">계수동</option>
+                                <option value="거모동">거모동</option>
+                                <option value="대야동">대야동</option>
+                                <option value="능곡동">능곡동</option>
+                                <option value="화정동">화정동</option>
+                                <option value="장현동">장현동</option>
+                                <option value="하상동">하상동</option>
+                                <option value="과림동">과림동</option>
+                                <option value="포동">포동</option>
+                                <option value="매화동">매화동</option>
+                                <option value="군자동">군자동</option>
+                                <option value="논곡동">논곡동</option>
+                                <option value="도창동">도창동</option>
+                                <option value="금이동">금이동</option>
+                                <option value="조남동">조남동</option>
+                                <option value="목감동">목감동</option>
+                                <option value="물왕동">물왕동</option>
+                                <option value="안현동">안현동</option>
+                                <option value="미산동">미산동</option>
+                                <option value="무지내동">무지내동</option>
+                                <option value="방산동">방산동</option>
+                                <option value="광석동">광석동</option>
+                                <option value="죽율동">죽율동</option>
+                                
+                            </select>
+                            
+                            <select name="category" class="custom-select" id="업종">
+                                    <option value="전체" selected>업종 전체</option>
+                                    <option value="협회">협회 및 단체/수리 및 기타개인서비스</option>
+                                    <option value="숙박">숙박 및 음식점업</option>
+                                    <option value="도매">도매 및 소매업</option>
+                                    <option value="제조업">제조업</option>
+                                    <option value="예술">예술/스포츠 및 여가관련 서비스업</option>
+                                    <option value="보건업">보건업 및 사회복지서비스업</option>
+                                    <option value="교육서비스">교육서비스업</option>
+                                </select>
+                                
+                            <button type="submit" class="btn dorne-btn mt-50 bg-white text-dark" ><i class="fa fa-search pr-2" aria-hidden="true"></i> Search</button>
+                        </form>
+                    </div>
+                    
+                    
+                </div>
+            </div>
+            
+            <!-- Explore Search Result -->
+            <div class="explore-search-result" style="" >
+
+                <div style="height:2%;"></div>
+                <!-- 여기서 for문 써서 반복 -->
+                {% if hongkong%}
+                <div id =""class="single-features-area">
+                        <img src="img/bg-img/feature-1.jpg" alt="">
+                        <!-- Price -->
+                    
+                        <div class="feature-content d-flex align-items-center justify-content-between" >
+                            <div class="feature-title" >
+                                <p>해당 매장이 존재하지 않습니다</p><br>
+                                <p>홍콩반점은 어떠세요?</p><br>
+                            </div>
+                        </div>
+                    </div>
+                {%endif%}
+                {% for items in list%}
+                <!-- Single Features Area -->
+                <div id ="{{items.2}}"class="{{forloop.counter}} single-features-area">
+                    <img src="img/bg-img/feature-1.jpg" alt="">
+                    <!-- Price -->
+                
+                    <div class="feature-content d-flex align-items-center justify-content-between" >
+                        <div class="feature-title" >
+                            <p>{{items.0}}</p><br>
+                            <p>{{items.1}}</p><br>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+             
+               
+
+            </div>
+        </div>
+        <!-- Explore Map Area -->
+        <script>
+            function pick(locx,locy){
+                var map = new naver.maps.Map("map", {
+                                center: new naver.maps.LatLng(locx-0.0005,locy),
+                                zoom: 15,
+                                mapTypeControl: true
+                            });
+                var  marker = new naver.maps.Marker({
+                                position: new naver.maps.LatLng(locx,locy),
+                                map: map
+                 });
+            }
+        </script>
+        
+        <div class="explore-map-area">
+                <div id="map" style="padding: 5px; width:100%; height:100%; float:center"></div>
+                <br>
+                    <script>
+                        pick({{locx}},{{locy}});
+                            
+                    </script>
+        </div>
+
+        <script type="text/javascript">
+            $(function(){
+            
+            {% for i in le%}
+            $('.{{i}}').click(function(){
+                
+                click_id = $(".{{i}}").attr("id");
+                clicks = click_id.split('_');
+
+                console.log(clicks);
+                $(".explore-map-area").load(window.location.href + "map");
+                pick(clicks[0],clicks[1]);
+            });
+            
+            {%endfor%}
+            });
+        </script>
+    </section>
+
+    <!-- ****** Footer Area Start ****** -->
+    
+    <!-- ****** Footer Area End ****** -->
+
+    <!-- jQuery-2.2.4 js -->
+    <script src="{% static 'js/jquery/jquery-2.2.4.min.js' %}"></script>
+    <!-- Popper js -->
+    <script src="{% static 'js/bootstrap/popper.min.js' %}"></script>
+    <!-- Bootstrap-4 js -->
+    <script src="{% static 'js/bootstrap/bootstrap.min.js' %}"></script>
+    <!-- All Plugins js -->
+    <script src="{% static 'js/others/plugins.js' %}"></script>
+    <!-- Active JS -->
+    <script src="{% static 'js/active.js' %}"></script>
+</body>
+
+</html>
